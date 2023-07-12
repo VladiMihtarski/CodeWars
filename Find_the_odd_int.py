@@ -16,3 +16,7 @@ def find_it(seq):
             return element
     
     return None
+
+seq = [1, 2, 3, 2, 1, 3, 1]
+result = find_it(seq)
+print(result)  # Извежда: 2
