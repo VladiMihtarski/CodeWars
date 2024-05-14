@@ -1,16 +1,11 @@
 def grille(message, code):
-    if not message:
-        return ""
-    binary = bin(code)[2:].zfill(len(message))
-    result = ""
-    
-    for i in range(len(binary)):
-        if binary[i] == '1':
-            return += message[i]
-            
-    return result
-    
-    
-message = ""
-code = 1
-print(grille(message, code))
+    binary_code = bin(code)[2:]
+    binary_length = len(message)
+    binary_code_filled = binary_code.zfill(binary_length)[::-1]  # Обръщаме и запълваме двоичния код
+    hidden_message = ""
+
+    for char, bit in zip(message[::-1], binary_code_filled):
+        if bit == '1':
+            hidden_message += char
+
+    return hidden_message[::-1]
